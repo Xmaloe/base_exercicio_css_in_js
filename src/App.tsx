@@ -2,7 +2,7 @@ import Header from './components/Cabecalho'
 import Hero from './components/Hero'
 import ListaVagas from './containers/ListaVagas'
 
-import './global.css'
+import GlobalStyle from './GlobalStyle'
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <div className="container">
         <ListaVagas />
       </div>
+      <GlobalStyle />
     </>
   )
 }
