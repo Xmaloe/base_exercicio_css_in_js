@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 const CabecalhoEstilizado = styled.header`
-  background-color: #0c2461;
-  color: white;
-  padding: 20px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-principal);
   text-align: center;
+  padding: 24px 0;
 `
 
-function Header() {
+function Cabecalho() {
   return (
     <CabecalhoEstilizado>
       <h1>EBAC Jobs</h1>
@@ -15,4 +15,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Cabecalho

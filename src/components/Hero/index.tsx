@@ -1,20 +1,46 @@
 import styled from 'styled-components'
 
 const HeroSection = styled.section`
-  background-color: #f5f5f5;
-  padding: 40px 0;
-  text-align: center;
-`
+  height: 360px;
+  width: 100%;
+  background-image: url('https://cdn.pixabay.com/photo/2018/08/10/15/45/woman-3597101_1280.jpg');
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-const HeroTitle = styled.h2`
-  font-size: 24px;
-  color: #333;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-principal);
+    content: '';
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 24px 0;
+  }
 `
 
 const Container = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
+  position: relative;
+  color: #eee;
+  text-align: center;
   padding: 0 16px;
+`
+
+const HeroTitle = styled.h2`
+  font-family: Gloock, serif;
+  font-size: 48px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `
 
 function Hero() {

@@ -1,34 +1,34 @@
-import { FormEvent, useState } from 'react'
 import styled from 'styled-components'
+import { FormEvent, useState } from 'react'
 
 type Props = {
   aoPesquisar: (termo: string) => void
 }
 
-const FormContainer = styled.form`
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: var(--cor-secundaria);
+  padding: 32px;
+  border-radius: 12px;
+  margin-top: 40px;
 `
 
 const Campo = styled.input`
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0 16px;
+  outline-color: var(--cor-principal);
+  height: 40px;
 `
 
 const BotaoPesquisar = styled.button`
-  padding: 8px 16px;
-  background-color: #4a69bd;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  background-color: var(--cor-principal);
+  border: 1px solid var(--cor-principal);
+  height: 40px;
+  padding: 0 16px;
+  font-size: 18px;
+  color: var(--cor-secundaria);
+  margin-left: 8px;
   cursor: pointer;
-
-  &:hover {
-    background-color: #3c4048;
-  }
 `
 
 function Formulario({ aoPesquisar }: Props) {
@@ -40,14 +40,14 @@ function Formulario({ aoPesquisar }: Props) {
   }
 
   return (
-    <FormContainer onSubmit={aoEnviarForm}>
+    <Form onSubmit={aoEnviarForm}>
       <Campo
         placeholder="Front-end, fullstack, node, design"
         onChange={(e) => setTermo(e.target.value)}
         type="search"
       />
       <BotaoPesquisar type="submit">Pesquisar</BotaoPesquisar>
-    </FormContainer>
+    </Form>
   )
 }
 

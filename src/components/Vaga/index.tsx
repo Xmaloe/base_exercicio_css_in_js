@@ -11,43 +11,58 @@ type Props = {
 }
 
 const VagaItem = styled.li`
-  border: 5px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid var(--cor-principal);
+  background-color: var(--cor-secundaria);
+  color: var(--cor-principal);
   padding: 16px;
-  margin-bottom: 16px;
-  list-style: none;
+  border-radius: 8px;
+  transition: all ease 0.3s;
+
+  &:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria;
+
+    a {
+      border-color: var(--cor-principal);
+      background-color: var(--cor-secundaria);
+      color: var(--cor-principal);
+    }
+  }
 `
 
 const Titulo = styled.h3`
-  margin-bottom: 8px;
-  color: #333;
-`
-
-const Detalhes = styled.ul`
-  margin-bottom: 8px;
-  padding-left: 16px;
-
-  li {
-    margin-bottom: 4px;
-  }
+  font-weight: bold;
+  margin-bottom: 16px;
 `
 
 const LinkDetalhes = styled.a`
+  border-color: var(--cor-secundaria);
+  background-color: var(--cor-principal);
+  color: var(--cor-secundaria);
   display: inline-block;
-  margin-top: 8px;
-  color: #007bff;
+  padding: 8px 16px;
   text-decoration: none;
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  text-align: center;
 
-  &:hover {
-    text-decoration: underline;
+  @media (max-width: 768px) {
+    display: block;
   }
+`
+const ListaDetalhes = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
 `
 
 function Vaga(props: Props) {
   return (
     <VagaItem>
       <Titulo>{props.titulo}</Titulo>
-      <Detalhes>
+      <ListaDetalhes>
         <li>Localização: {props.localizacao}</li>
         <li>Senioridade: {props.nivel}</li>
         <li>Tipo de contratação: {props.modalidade}</li>
@@ -55,7 +70,7 @@ function Vaga(props: Props) {
           Salário: {props.salarioMin} - {props.salarioMax}
         </li>
         <li>Requisitos: {props.requisitos.join(', ')}</li>
-      </Detalhes>
+      </ListaDetalhes>
       <LinkDetalhes href="#">Ver detalhes e candidatar-se</LinkDetalhes>
     </VagaItem>
   )
